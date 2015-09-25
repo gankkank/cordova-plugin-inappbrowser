@@ -24,7 +24,7 @@ var channel = require('cordova/channel');
 var modulemapper = require('cordova/modulemapper');
 var urlutil = require('cordova/urlutil');
 
-function InAppBrowser() {
+function InAppBrowserx() {
    this.channels = {
         'loadstart': channel.create('loadstart'),
         'loadstop' : channel.create('loadstop'),
@@ -33,7 +33,7 @@ function InAppBrowser() {
    };
 }
 
-InAppBrowser.prototype = {
+InAppBrowserx.prototype = {
     _eventHandler: function (event) {
         if (event && (event.type in this.channels)) {
             this.channels[event.type].fire(event);
@@ -85,7 +85,7 @@ module.exports = function(strUrl, strWindowName, strWindowFeatures, callbacks) {
     }
 
     strUrl = urlutil.makeAbsolute(strUrl);
-    var iab = new InAppBrowser();
+    var iab = new InAppBrowserx();
 
     callbacks = callbacks || {};
     for (var callbackName in callbacks) {
