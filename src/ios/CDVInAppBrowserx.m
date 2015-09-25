@@ -64,11 +64,11 @@
 
 - (BOOL) isSystemUrl:(NSURL*)url
 {
-	if ([[url host] isEqualToString:@"itunes.apple.com"]) {
-		return YES;
-	}
+    if ([[url host] isEqualToString:@"itunes.apple.com"]) {
+        return YES;
+    }
 
-	return NO;
+    return NO;
 }
 
 - (void)open:(CDVInvokedUrlCommand*)command
@@ -112,7 +112,7 @@
 
 - (void)openInInAppBrowser:(NSURL*)url withOptions:(NSString*)options
 {
-    CDVInAppBrowserOptions* browserOptions = [CDVInAppBrowserOptions parseOptions:options];
+    CDVInAppBrowserxOptions* browserOptions = [CDVInAppBrowserxOptions parseOptions:options];
 
     if (browserOptions.clearcache) {
         NSHTTPCookie *cookie;
@@ -138,7 +138,7 @@
 
     if (self.inAppBrowserViewController == nil) {
         NSString* originalUA = [CDVUserAgentUtil originalUserAgent];
-        self.inAppBrowserViewController = [[CDVInAppBrowserViewController alloc] initWithUserAgent:originalUA prevUserAgent:[self.commandDelegate userAgent] browserOptions: browserOptions];
+        self.inAppBrowserViewController = [[CDVInAppBrowserxViewController alloc] initWithUserAgent:originalUA prevUserAgent:[self.commandDelegate userAgent] browserOptions: browserOptions];
         self.inAppBrowserViewController.navigationDelegate = self;
 
         if ([self.viewController conformsToProtocol:@protocol(CDVScreenOrientationDelegate)]) {
@@ -214,7 +214,7 @@
 
     _previousStatusBarStyle = [UIApplication sharedApplication].statusBarStyle;
 
-    CDVInAppBrowserNavigationController* nav = [[CDVInAppBrowserNavigationController alloc]
+    CDVInAppBrowserxNavigationController* nav = [[CDVInAppBrowserxNavigationController alloc]
                                    initWithRootViewController:self.inAppBrowserViewController];
     nav.orientationDelegate = self.inAppBrowserViewController;
     nav.navigationBarHidden = YES;
@@ -262,7 +262,7 @@
 {
     if (!_injectedIframeBridge) {
         _injectedIframeBridge = YES;
-        // Create an iframe bridge in the new document to communicate with the CDVInAppBrowserViewController
+        // Create an iframe bridge in the new document to communicate with the CDVInAppBrowserxViewController
         [self.inAppBrowserViewController.webView stringByEvaluatingJavaScriptFromString:@"(function(d){var e = _cdvIframeBridge = d.createElement('iframe');e.style.display='none';d.body.appendChild(e);})(document)"];
     }
 
@@ -452,13 +452,13 @@
 
 @end
 
-#pragma mark CDVInAppBrowserViewController
+#pragma mark CDVInAppBrowserxViewController
 
-@implementation CDVInAppBrowserViewController
+@implementation CDVInAppBrowserxViewController
 
 @synthesize currentURL;
 
-- (id)initWithUserAgent:(NSString*)userAgent prevUserAgent:(NSString*)prevUserAgent browserOptions: (CDVInAppBrowserOptions*) browserOptions
+- (id)initWithUserAgent:(NSString*)userAgent prevUserAgent:(NSString*)prevUserAgent browserOptions: (CDVInAppBrowserxOptions*) browserOptions
 {
     self = [super init];
     if (self != nil) {
@@ -909,7 +909,7 @@
 
 @end
 
-@implementation CDVInAppBrowserOptions
+@implementation CDVInAppBrowserxOptions
 
 - (id)init
 {
@@ -934,9 +934,9 @@
     return self;
 }
 
-+ (CDVInAppBrowserOptions*)parseOptions:(NSString*)options
++ (CDVInAppBrowserxOptions*)parseOptions:(NSString*)options
 {
-    CDVInAppBrowserOptions* obj = [[CDVInAppBrowserOptions alloc] init];
+    CDVInAppBrowserxOptions* obj = [[CDVInAppBrowserxOptions alloc] init];
 
     // NOTE: this parsing does not handle quotes within values
     NSArray* pairs = [options componentsSeparatedByString:@","];
@@ -973,7 +973,7 @@
 
 @end
 
-@implementation CDVInAppBrowserNavigationController : UINavigationController
+@implementation CDVInAppBrowserxNavigationController : UINavigationController
 
 - (void) viewDidLoad {
 
@@ -1019,4 +1019,5 @@
 
 
 @end
+
 

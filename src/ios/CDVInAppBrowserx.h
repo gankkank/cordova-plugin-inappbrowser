@@ -27,13 +27,13 @@
     #import <Cordova/CDVWebViewDelegate.h>
 #endif
 
-@class CDVInAppBrowserViewController;
+@class CDVInAppBrowserxViewController;
 
 @interface CDVInAppBrowserx : CDVPlugin {
     BOOL _injectedIframeBridge;
 }
 
-@property (nonatomic, retain) CDVInAppBrowserViewController* inAppBrowserViewController;
+@property (nonatomic, retain) CDVInAppBrowserxViewController* inAppBrowserViewController;
 @property (nonatomic, copy) NSString* callbackId;
 @property (nonatomic, copy) NSRegularExpression *callbackIdPattern;
 
@@ -44,7 +44,7 @@
 
 @end
 
-@interface CDVInAppBrowserOptions : NSObject {}
+@interface CDVInAppBrowserxOptions : NSObject {}
 
 @property (nonatomic, assign) BOOL location;
 @property (nonatomic, assign) BOOL toolbar;
@@ -64,16 +64,16 @@
 @property (nonatomic, assign) BOOL hidden;
 @property (nonatomic, assign) BOOL disallowoverscroll;
 
-+ (CDVInAppBrowserOptions*)parseOptions:(NSString*)options;
++ (CDVInAppBrowserxOptions*)parseOptions:(NSString*)options;
 
 @end
 
-@interface CDVInAppBrowserViewController : UIViewController <UIWebViewDelegate, CDVScreenOrientationDelegate>{
+@interface CDVInAppBrowserxViewController : UIViewController <UIWebViewDelegate, CDVScreenOrientationDelegate>{
     @private
     NSString* _userAgent;
     NSString* _prevUserAgent;
     NSInteger _userAgentLockToken;
-    CDVInAppBrowserOptions *_browserOptions;
+    CDVInAppBrowserxOptions *_browserOptions;
     
 #ifdef __CORDOVA_4_0_0
     CDVUIWebViewDelegate* _webViewDelegate;
@@ -101,13 +101,14 @@
 - (void)showToolBar:(BOOL)show : (NSString *) toolbarPosition;
 - (void)setCloseButtonTitle:(NSString*)title;
 
-- (id)initWithUserAgent:(NSString*)userAgent prevUserAgent:(NSString*)prevUserAgent browserOptions: (CDVInAppBrowserOptions*) browserOptions;
+- (id)initWithUserAgent:(NSString*)userAgent prevUserAgent:(NSString*)prevUserAgent browserOptions: (CDVInAppBrowserxOptions*) browserOptions;
 
 @end
 
-@interface CDVInAppBrowserNavigationController : UINavigationController
+@interface CDVInAppBrowserxNavigationController : UINavigationController
 
 @property (nonatomic, weak) id <CDVScreenOrientationDelegate> orientationDelegate;
 
 @end
+
 
