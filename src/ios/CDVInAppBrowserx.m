@@ -17,7 +17,7 @@
  under the License.
  */
 
-#import "CDVInAppBrowser.h"
+#import "CDVInAppBrowserx.h"
 #import <Cordova/CDVPluginResult.h>
 #import <Cordova/CDVUserAgentUtil.h>
 
@@ -32,14 +32,14 @@
 #define    LOCATIONBAR_HEIGHT 21.0
 #define    FOOTER_HEIGHT ((TOOLBAR_HEIGHT) + (LOCATIONBAR_HEIGHT))
 
-#pragma mark CDVInAppBrowser
+#pragma mark CDVInAppBrowserx
 
-@interface CDVInAppBrowser () {
+@interface CDVInAppBrowserx () {
     NSInteger _previousStatusBarStyle;
 }
 @end
 
-@implementation CDVInAppBrowser
+@implementation CDVInAppBrowserx
 
 - (void)pluginInitialize
 {

@@ -29,7 +29,7 @@
 
 @class CDVInAppBrowserViewController;
 
-@interface CDVInAppBrowser : CDVPlugin {
+@interface CDVInAppBrowserx : CDVPlugin {
     BOOL _injectedIframeBridge;
 }
 
@@ -92,7 +92,7 @@
 @property (nonatomic, strong) IBOutlet UIToolbar* toolbar;
 
 @property (nonatomic, weak) id <CDVScreenOrientationDelegate> orientationDelegate;
-@property (nonatomic, weak) CDVInAppBrowser* navigationDelegate;
+@property (nonatomic, weak) CDVInAppBrowserx* navigationDelegate;
 @property (nonatomic) NSURL* currentURL;
 
 - (void)close;
