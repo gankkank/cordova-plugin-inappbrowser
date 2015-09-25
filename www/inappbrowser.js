@@ -40,10 +40,10 @@ InAppBrowser.prototype = {
         }
     },
     close: function (eventname) {
-        exec(null, null, "InAppBrowser", "close", []);
+        exec(null, null, "InAppBrowserx", "close", []);
     },
     show: function (eventname) {
-      exec(null, null, "InAppBrowser", "show", []);
+      exec(null, null, "InAppBrowserx", "show", []);
     },
     addEventListener: function (eventname,f) {
         if (eventname in this.channels) {
@@ -58,9 +58,9 @@ InAppBrowser.prototype = {
 
     executeScript: function(injectDetails, cb) {
         if (injectDetails.code) {
-            exec(cb, null, "InAppBrowser", "injectScriptCode", [injectDetails.code, !!cb]);
+            exec(cb, null, "InAppBrowserx", "injectScriptCode", [injectDetails.code, !!cb]);
         } else if (injectDetails.file) {
-            exec(cb, null, "InAppBrowser", "injectScriptFile", [injectDetails.file, !!cb]);
+            exec(cb, null, "InAppBrowserx", "injectScriptFile", [injectDetails.file, !!cb]);
         } else {
             throw new Error('executeScript requires exactly one of code or file to be specified');
         }
@@ -68,9 +68,9 @@ InAppBrowser.prototype = {
 
     insertCSS: function(injectDetails, cb) {
         if (injectDetails.code) {
-            exec(cb, null, "InAppBrowser", "injectStyleCode", [injectDetails.code, !!cb]);
+            exec(cb, null, "InAppBrowserx", "injectStyleCode", [injectDetails.code, !!cb]);
         } else if (injectDetails.file) {
-            exec(cb, null, "InAppBrowser", "injectStyleFile", [injectDetails.file, !!cb]);
+            exec(cb, null, "InAppBrowserx", "injectStyleFile", [injectDetails.file, !!cb]);
         } else {
             throw new Error('insertCSS requires exactly one of code or file to be specified');
         }
@@ -98,7 +98,7 @@ module.exports = function(strUrl, strWindowName, strWindowFeatures, callbacks) {
 
     strWindowFeatures = strWindowFeatures || "";
 
-    exec(cb, cb, "InAppBrowser", "open", [strUrl, strWindowName, strWindowFeatures]);
+    exec(cb, cb, "InAppBrowserx", "open", [strUrl, strWindowName, strWindowFeatures]);
     return iab;
 };
 
