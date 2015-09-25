@@ -1,9 +1,9 @@
 {
-  "name": "cordova-plugin-inappbrowser",
+  "name": "cordova-plugin-inappbrowserx",
   "version": "1.0.2-dev",
   "description": "Cordova InAppBrowser Plugin",
   "cordova": {
-    "id": "cordova-plugin-inappbrowser",
+    "id": "cordova-plugin-inappbrowserx",
     "platforms": [
       "android",
       "amazon-fireos",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/apache/cordova-plugin-inappbrowser"
+    "url": "https://github.com/gankkank/cordova-plugin-inappbrowser"
   },
   "keywords": [
     "cordova",
